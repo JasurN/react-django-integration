@@ -16,18 +16,28 @@ class Alerts extends Component {
                 alert.error(`Name: ${error.message.name}`);
             }
             if (error.message.email) {
-                alert.error(`Email: ${error.message.email }`);
+                alert.error(`Email: ${error.message.email}`);
             }
             if (error.message.message) {
-                alert.error(`Message: ${error.message.message }`);
+                alert.error(`Message: ${error.message.message}`);
             }
+            if (error.message.non_field_errors) {
+                alert.error(error.message.non_field_errors);
+            }
+            if (error.message.username) {
+                alert.error(error.message.username);
+            }
+
         }
-        if(message !== prevProps.message) {
-            if(message.deleteLead) {
+        if (message !== prevProps.message) {
+            if (message.deleteLead) {
                 alert.success(message.deleteLead)
             }
-            if(message.addLead) {
+            if (message.addLead) {
                 alert.success(message.addLead)
+            }
+            if (message.passwordNotMatch) {
+                alert.error(message.passwordNotMatch);
             }
         }
     }
